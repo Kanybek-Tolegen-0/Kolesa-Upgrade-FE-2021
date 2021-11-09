@@ -1,13 +1,11 @@
-import { toggleFavoriteRequest } from './requests';
+/* eslint-disable import/extensions */
+import addApp from './app.js';
+
+import { toggleFavoriteRequest } from './requests.js';
 
 /* eslint-disable import/prefer-default-export */
 export const addContent = (data) => {
-    const appElement = document.querySelector('#app');
-
-    appElement.innerHTML = data.html;
-    appElement.style.display = 'block';
-
-    Array.from(appElement.querySelector('button')).forEach((button) => {
+    Array.from(addApp(data).querySelector('button')).forEach((button) => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
 

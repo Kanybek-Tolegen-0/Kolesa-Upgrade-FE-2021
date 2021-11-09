@@ -1,3 +1,5 @@
+/* eslint-disable no-debugger */
+// eslint-disable-next-line import/extensions
 import axios from 'axios';
 
 axios.defaults.baseURL = 'http://example.com';

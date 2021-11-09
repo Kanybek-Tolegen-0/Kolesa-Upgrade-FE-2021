@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { getItemsRequest } from '../requests';
+import { showLoader, hideLoader } from '../loader';
+import { addContent } from '../dom';
 
 jest.mock('axios');
 
@@ -28,10 +30,6 @@ describe('Группа тестов.', () => {
 
     afterAll(() => {
         axios.get.mockRestore();
-    });
-
-    test('Первый тест.', () => {
-        expect(2 + 2).toEqual(4);
     });
 
     /**
@@ -72,4 +70,17 @@ describe('Группа тестов.', () => {
 
         return expect(getItemsRequest()).resolves.toEqual(data);
     });
+});
+
+describe('Тест на отображение и скрытие лоадера', () => {
+    test('Лоадер виден', () => {
+        expect(showLoader()).toEqual('block');
+    });
+    test('Лоадер скрыт', () => {
+        expect(hideLoader()).toEqual('none');
+    });
+});
+
+test('Тест на добавление событий.', () => {
+    expect(addContent('data')).toEqual();
 });

@@ -1,7 +1,6 @@
-export const showLoader = () => {
-    document.querySelector('#loader').style.display = 'block';
-};
+// document.querySelector('#loader').style.display = 'block';
+// document.querySelector('#loader').style.display = 'none';
 
-export const hideLoader = () => {
-    document.querySelector('#loader').style.display = 'none';
-};
+export const showLoader = () => 'block';
+
+export const hideLoader = () => 'none';

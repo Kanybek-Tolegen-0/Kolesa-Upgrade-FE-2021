@@ -1,9 +1,11 @@
-import { getItemsRequest } from './requests';
-import { showLoader, hideLoader } from './loader';
-import { showError, hideError } from './error';
-import { addContent } from './dom';
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable import/extensions */
+import { getItemsRequest } from './requests.js';
+import { showLoader, hideLoader } from './loader.js';
+import { showError, hideError } from './error.js';
+import { addContent } from './dom.js';
 
-export default () => {
+const func = () => {
     hideError();
     showLoader();
     getItemsRequest()
@@ -21,3 +23,5 @@ export default () => {
             hideLoader();
         });
 };
+
+func();
