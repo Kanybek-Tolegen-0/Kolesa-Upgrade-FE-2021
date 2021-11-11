@@ -9,8 +9,7 @@
     "serve": "vite preview",
     "prepare": "npx simple-git-hooks",
     "test": "jest --env jsdom",
-    "coverage": "jest --env jsdom --coverage --collectCoverageFrom \"src/**/*.js\"",
-    "type": "commonJS"
+    "coverage": "jest --env jsdom --coverage --collectCoverageFrom \"src/**/*.js\""
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",

@@ -1,7 +1,7 @@
 import axios from 'axios';
+// import { showLoader } from '../loader';
 import { getItemsRequest } from '../requests';
 import { showLoader, hideLoader } from '../loader';
-import { addContent } from '../dom';
 
 jest.mock('axios');
 
@@ -72,15 +72,61 @@ describe('Группа тестов.', () => {
     });
 });
 
-describe('Тест на отображение и скрытие лоадера', () => {
-    test('Лоадер виден', () => {
-        expect(showLoader()).toEqual('block');
+describe('Тест событий', () => {
+    let handlerClick;
+
+    beforeAll(() => {
+        handlerClick = jest.fn();
+
+        const body = document.querySelector('body');
+        const button = document.createElement('button');
+
+        body.innerHTML += button;
+
+        button.addEventListener('click', handlerClick);
+
+        button.click();
     });
-    test('Лоадер скрыт', () => {
-        expect(hideLoader()).toEqual('none');
+
+    test('Проверка вызова по клику на кнопку', () => {
+        expect(handlerClick).toHaveBeenCalled();
     });
 });
 
-test('Тест на добавление событий.', () => {
-    expect(addContent('data')).toEqual();
+describe(('Тест на добавление контента на страницу в блок #app.'), () => {
+    const body = document.querySelector('body');
+
+    beforeAll(() => {
+        const app = document.createElement('div');
+
+        app.id = 'app';
+
+        body.innerHTML += app;
+    });
+
+    afterAll(() => {
+        body.innerHTML = '';
+    });
+
+    test('тест на проверку добавления контента', () => {
+        expect(beforeAll).toMatchSnapshot();
+    });
+});
+
+describe('Тест на отображение и скрытие лоадера.', () => {
+    const loader = document.createElement('h1');
+
+    loader.id = 'loader';
+
+    document.querySelector('body').append(loader);
+
+    test('Тест на отображение лоадера', () => {
+        showLoader();
+        expect(loader.style.display).toEqual('block');
+    });
+
+    test('Тест на скрытие лоадера', () => {
+        hideLoader();
+        expect(loader.style.display).toEqual('none');
+    });
 });
