@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Тест на добавление контента на страницу в блок #app. тест на проверку добавления контента 1`] = `[Function]`;
+
+exports[`Тест на отображение и скрытие лоадера. Тест на отображение лоадера 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Тест на отображение и скрытие лоадера. Тест на скрытие лоадера 1`] = `[Function]`;
